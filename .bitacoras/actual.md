@@ -9,7 +9,7 @@
 ---
 
 ## 🚦 PUNTO DE CONTROL
-- **Lo último que funcionó:** GitHub configurado: workflows, branch protection, labels, repo settings. dev=prod, dev-2=dev.
+- **Lo último que funcionó:** Migración completa a org cubiculo-digital. GitHub configurado y operativo.
 - **Dónde se rompió/detuvo:** N/A — tarea completada.
 - **Siguiente acción inmediata:** Esperar instrucciones para siguiente tarea del backlog (F-01 JWT expiry, F-02 Secrets, etc.)
 
@@ -24,17 +24,24 @@
 - [x] **.bitacoras/** — 00-plantilla.md, index.md, actual.md
 - [x] **.git-hooks/** — pre-commit + pre-push (bloqueo main/dev)
 
-### #002 — GitHub Full Setup ✅ (recién completado)
+### #002 — GitHub Full Setup ✅ (completado)
 - [x] **Workflows actualizados** — ci.yml, deploy-staging, deploy-prod, security, pr-quality para nuevo branch model
 - [x] **Issue Templates** — agent-implementation, feature-implementation, bug-report
-- [x] **Labels** — 25+ labels (track, priority, day, agent, meta) creadas en GitHub
+- [x] **Labels** — 30 labels (track, priority, day, agent, meta) creadas en GitHub
 - [x] **Branch Protection** — `dev` (prod: 1 approval, linear history, enforce admins) + `dev-2` (staging: 1 approval, linear history)
-- [x] **Repo Settings** — squash merge only, auto-delete branches, auto-merge, issues enabled
-- [x] **Sincronización** — dev→dev-2 fast-forward (ambas en commit 6c20ea7)
+- [x] **Repo Settings** — squash merge only, auto-delete branches, auto-merge, issues enabled, default branch = dev
+- [x] **Sincronización** — dev→dev-2 fast-forward
+
+### Migración a cubiculo-digital org
+- [x] **Repo transferido** — `talgidicodes/Cubiculo-Digital` → `cubiculo-digital/Cubiculo-Digital`
+- [x] **Remote actualizado** — `origin` → `https://github.com/cubiculo-digital/Cubiculo-Digital.git`
+- [x] **Projects Board** — https://github.com/orgs/cubiculo-digital/projects/1
+- [x] **Autenticación** — Token con scopes project activo
 
 ---
 
 ## ⚠️ NOTAS DE MEMORIA
 - **Branch model:** `dev` = producción, `dev-2` = staging/desarrollo. NUNCA push directo a dev.
-- **Org pendiente:** `cubiculo-digital` no existe en GitHub. Crear manualmente en github.com/settings/organizations si se desea.
-- **Projects board pendiente:** Token sin scope `read:project`. Requiere auth refresh: `gh auth refresh -h github.com -s read:project,write:project` o crear manualmente.
+- **Org:** `cubiculo-digital` creada y operativa con repo transferido ✅
+- **Proyecto:** Board creado en https://github.com/orgs/cubiculo-digital/projects/1 ✅
+- **Token:** Scopes project habilitados ✅
