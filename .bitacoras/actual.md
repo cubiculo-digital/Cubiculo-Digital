@@ -1,47 +1,37 @@
-# 🛠️ TAREA ACTUAL
+# 🛠️ TAREA: GitHub Full Setup + Issues + Projects Board
 **ID:** #002 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-14
 
 ---
 
 ## 🎯 OBJETIVO FINAL
-> Crear la configuración agéntica completa del proyecto Cubículo Digital basada en PRD2.md y la estructura del proyecto Condominios Venezuela.
+> Configurar GitHub completo: org, repo, branch protection, labels, milestones, 54 issues, y Projects board poblado con campos personalizados.
 
 ---
 
 ## 🚦 PUNTO DE CONTROL
-- **Lo último que funcionó:** Migración completa a org cubiculo-digital. GitHub configurado y operativo.
+- **Lo último que funcionó:** Verificación final — 54 issues open + 1 closed (duplicado), 55 items en Projects board con todos los campos personalizados configurados (Priority, Track, Day, Department, Estimate).
 - **Dónde se rompió/detuvo:** N/A — tarea completada.
-- **Siguiente acción inmediata:** Esperar instrucciones para siguiente tarea del backlog (F-01 JWT expiry, F-02 Secrets, etc.)
+- **Siguiente acción inmediata:** Esperar instrucciones para comenzar el backlog del Día 1 (F-01 JWT expiry, F-02 Secrets, etc.)
 
 ---
 
 ## 📝 CAMBIOS TÉCNICOS CLAVE
-### #001 — Configuración agéntica inicial
-- [x] **AGENTS.md** — Protocolo de inicio, triaje, ejecución, sincronización
-- [x] **opencode.json** — Config de agentes (plan, build, code-reviewer)
-- [x] **.opencode/prompts/** — build.txt + review.txt
-- [x] **.agent/rules/** — Reglas de global-context, design-system, checklists, skills, workflows
-- [x] **.bitacoras/** — 00-plantilla.md, index.md, actual.md
-- [x] **.git-hooks/** — pre-commit + pre-push (bloqueo main/dev)
-
-### #002 — GitHub Full Setup ✅ (completado)
-- [x] **Workflows actualizados** — ci.yml, deploy-staging, deploy-prod, security, pr-quality para nuevo branch model
-- [x] **Issue Templates** — agent-implementation, feature-implementation, bug-report
-- [x] **Labels** — 30 labels (track, priority, day, agent, meta) creadas en GitHub
-- [x] **Branch Protection** — `dev` (prod: 1 approval, linear history, enforce admins) + `dev-2` (staging: 1 approval, linear history)
-- [x] **Repo Settings** — squash merge only, auto-delete branches, auto-merge, issues enabled, default branch = dev
-- [x] **Sincronización** — dev→dev-2 fast-forward
-
-### Migración a cubiculo-digital org
-- [x] **Repo transferido** — `talgidicodes/Cubiculo-Digital` → `cubiculo-digital/Cubiculo-Digital`
-- [x] **Remote actualizado** — `origin` → `https://github.com/cubiculo-digital/Cubiculo-Digital.git`
-- [x] **Projects Board** — https://github.com/orgs/cubiculo-digital/projects/1
-- [x] **Autenticación** — Token con scopes project activo
+- [x] Org `cubiculo-digital` creada + repo transferido + remote actualizado
+- [x] Branch protection (dev + dev-2): 1 approval, linear history, enforce admins
+- [x] Repo settings: squash merge, auto-delete branches, auto-merge
+- [x] 6 workflows: ci, deploy-staging, deploy-prod, security, pr-quality
+- [x] Issue templates: agent-implementation, feature-implementation, bug-report
+- [x] 34+ labels: 8 agent/*, 4 priority/*, 6 day/*, 7 track/*, 4 meta + defaults
+- [x] 6 milestones: MS-1 through MS-6
+- [x] Projects board: 5 custom fields (Priority, Track, Day, Department, Estimate)
+- [x] 54 issues creados (MS-1 a MS-6) con labels y milestones
+- [x] Todos los issues agregados al Projects board con campos configurados
 
 ---
 
 ## ⚠️ NOTAS DE MEMORIA
-- **Branch model:** `dev` = producción, `dev-2` = staging/desarrollo. NUNCA push directo a dev.
-- **Org:** `cubiculo-digital` creada y operativa con repo transferido ✅
-- **Proyecto:** Board creado en https://github.com/orgs/cubiculo-digital/projects/1 ✅
-- **Token:** Scopes project habilitados ✅
+- *Regla:* `dev` = producción, `dev-2` = staging. NUNCA push directo a dev.
+- *Regla:* gh v2.4.0 no soporta `gh label` ni `--comment` flag — usar `gh api` como workaround
+- *Regla:* Ejecución en paralelo con `&` puede causar race conditions en asignación de issue numbers
+- *Branch:* `dev-2` (todo el trabajo en dev-2, PR a dev)
+- *Board:* https://github.com/orgs/cubiculo-digital/projects/1
