@@ -1,5 +1,5 @@
 # 🛠️ TAREA: SEC-01 — JWT expiry en signup + login
-**ID:** #001 | **Estado:** 🟡 EN CURSO | **Fecha:** 2026-06-16
+**ID:** #001 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-16
 
 ---
 
@@ -21,8 +21,11 @@
 - [x] Crear rama `fix/sec-01-jwt-expiry` desde `dev-2`
 - [x] Agregar `expiresIn: '1d'` en `signup` (línea 14)
 - [x] Agregar `expiresIn: '1d'` en `login` (línea 24)
-- [ ] TypeScript check: `pnpm exec tsc --noEmit` — 0 errors
-- [ ] Commit + Push
+- [x] TypeScript check: `pnpm exec tsc --noEmit` — 0 errors
+- [x] Tests: 5/5 passing (`pnpm exec vitest run`)
+- [x] Commit + Push + PR #58
+- [x] GitHub Actions CI en dev-2 (typecheck, lint, test, build)
+- [x] PR #58 creado → https://github.com/cubiculo-digital/Cubiculo-Digital/pull/58
 
 ---
 
