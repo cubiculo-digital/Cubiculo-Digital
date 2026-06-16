@@ -11,7 +11,7 @@ export const authResolvers = {
       const user = await prisma.user.create({
         data: { name, email, password: hashedPassword }
       });
-      const token = jwt.sign({ userId: user.id }, JWT_SECRET);
+      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1d' });
       return { token, user };
     },
     login: async (_: any, { email, password }: any) => {
@@ -21,7 +21,7 @@ export const authResolvers = {
       const valid = await bcrypt.compare(password, user.password);
       if (!valid) throw new Error('Contraseña incorrecta');
 
-      const token = jwt.sign({ userId: user.id }, JWT_SECRET);
+      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1d' });
       return { token, user };
     }
   }
