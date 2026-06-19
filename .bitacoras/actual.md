@@ -1,37 +1,34 @@
-# 🛠️ TAREA: GitHub Full Setup + Issues + Projects Board
-**ID:** #002 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-14
+# 🛠️ TAREA: SEC-01 — JWT expiry en signup + login
+**ID:** #001 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-16
 
 ---
 
 ## 🎯 OBJETIVO FINAL
-> Configurar GitHub completo: org, repo, branch protection, labels, milestones, 54 issues, y Projects board poblado con campos personalizados.
+> Que todos los JWT emitidos en signup y login tengan `expiresIn: '1d'`, eliminando el riesgo de tokens sin expiración.
 
 ---
 
 ## 🚦 PUNTO DE CONTROL
-- **Lo último que funcionó:** Verificación final — 54 issues open + 1 closed (duplicado), 55 items en Projects board con todos los campos personalizados configurados (Priority, Track, Day, Department, Estimate).
-- **Dónde se rompió/detuvo:** N/A — tarea completada.
-- **Siguiente acción inmediata:** Esperar instrucciones para comenzar el backlog del Día 1 (F-01 JWT expiry, F-02 Secrets, etc.)
+- **Lo último que funcionó:** Fix aplicado — `jwt.sign()` ahora incluye `{ expiresIn: '1d' }` en signup (line 14) y login (line 24). TypeScript 0 errors. PR #58 creado.
+- **Dónde se rompió/detuvo:** N/A — completado sin issues.
+- **Siguiente acción inmediata:** Continuar con SEC-02 (#2): Rotar secrets → GitHub Secrets.
 
 ---
 
 ## 📝 CAMBIOS TÉCNICOS CLAVE
-- [x] Org `cubiculo-digital` creada + repo transferido + remote actualizado
-- [x] Branch protection (dev + dev-2): 1 approval, linear history, enforce admins
-- [x] Repo settings: squash merge, auto-delete branches, auto-merge
-- [x] 6 workflows: ci, deploy-staging, deploy-prod, security, pr-quality
-- [x] Issue templates: agent-implementation, feature-implementation, bug-report
-- [x] 34+ labels: 8 agent/*, 4 priority/*, 6 day/*, 7 track/*, 4 meta + defaults
-- [x] 6 milestones: MS-1 through MS-6
-- [x] Projects board: 5 custom fields (Priority, Track, Day, Department, Estimate)
-- [x] 54 issues creados (MS-1 a MS-6) con labels y milestones
-- [x] Todos los issues agregados al Projects board con campos configurados
+- [x] Crear rama `fix/sec-01-jwt-expiry` desde `dev-2`
+- [x] Agregar `expiresIn: '1d'` en `signup` (auth.resolvers.ts:14)
+- [x] Agregar `expiresIn: '1d'` en `login` (auth.resolvers.ts:24)
+- [x] TypeScript check: `pnpm exec tsc --noEmit` — 0 errors
+- [x] Commit: `fix(auth): add 1-day JWT expiry to signup and login mutations`
+- [x] Push + PR #58 → https://github.com/cubiculo-digital/Cubiculo-Digital/pull/58
 
 ---
 
 ## ⚠️ NOTAS DE MEMORIA
-- *Regla:* `dev` = producción, `dev-2` = staging. NUNCA push directo a dev.
-- *Regla:* gh v2.4.0 no soporta `gh label` ni `--comment` flag — usar `gh api` como workaround
-- *Regla:* Ejecución en paralelo con `&` puede causar race conditions en asignación de issue numbers
-- *Branch:* `dev-2` (todo el trabajo en dev-2, PR a dev)
-- *Board:* https://github.com/orgs/cubiculo-digital/projects/1
+- *Regla:* JWT DEBE tener `expiresIn: '1d'` en signup y login (global-context.md §9)
+- *Regla:* Trabajar desde `dev-2`, PR a `dev-2` (no a dev)
+- *Regla:* PRs individuales por issue — CTO mindset
+- *Branch:* `fix/sec-01-jwt-expiry`
+- *PR:* #58
+- *Siguiente:* SEC-02 (#2) — Rotar secrets → GitHub Secrets
