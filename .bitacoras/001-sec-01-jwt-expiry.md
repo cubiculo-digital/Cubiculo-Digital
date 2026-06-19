@@ -25,7 +25,8 @@
 - [x] Tests: 5/5 passing (`pnpm exec vitest run`)
 - [x] Commit + Push + PR #58
 - [x] GitHub Actions CI en dev-2 (typecheck, lint, test, build)
-- [x] PR #58 creado → https://github.com/cubiculo-digital/Cubiculo-Digital/pull/58
+- [x] GitHub Actions CI: ✅ success (typecheck, lint, test, build)
+- [x] PR #58 → https://github.com/cubiculo-digital/Cubiculo-Digital/pull/58
 
 ---
 
