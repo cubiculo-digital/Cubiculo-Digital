@@ -1,5 +1,5 @@
 # 🛠️ TAREA: SEC-02 — Rotar secrets → GitHub Secrets
-**ID:** #003 | **Estado:** 🟡 EN CURSO | **Fecha:** 2026-06-20
+**ID:** #003 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-20
 
 ---
 
@@ -19,16 +19,17 @@
 ## 📝 CAMBIOS TÉCNICOS CLAVE
 
 - [x] Diagnóstico inicial: leer workflows, .env, codebase, estado de GitHub Secrets
-- [ ] Crear `.env.example` con todos los secrets como placeholders
-- [ ] Generar `JWT_SECRET` y agregarlo a `.env` (hoy no existe — usa fallback hardcodeado)
-- [ ] Configurar GitHub Secrets via `gh secret set`:
+- [x] Crear `.env.example` con todos los secrets como placeholders
+- [x] Generar `JWT_SECRET` y agregarlo a `.env` (hoy no existe — usa fallback hardcodeado)
+- [x] Remover `OPENAI_API_KEY` de `.env` (proyecto usa Groq, no OpenAI)
+- [x] Configurar GitHub Secrets via `gh secret set` (13 secrets total):
   - `JWT_SECRET`, `GROQ_API_KEY`, `DATABASE_URL`, `DIRECT_URL`, `REDIS_URL`
   - `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_API_PROJECT_ID`, `VERCEL_WEB_PROJECT_ID`
   - `STAGING_DATABASE_URL`, `STAGING_DIRECT_URL`
   - `PROD_DATABASE_URL`, `PROD_DIRECT_URL`
-- [ ] Crear script `scripts/rotate-secrets.sh` para futuras rotaciones
-- [ ] Actualizar `infra-deploy.md` con inventory actualizado de secrets
-- [ ] Commit + Push + PR a `dev-2`
+- [x] Crear script `scripts/rotate-secrets.sh` para futuras rotaciones
+- [x] Actualizar `infra-deploy.md` con inventory actualizado de secrets
+- [x] Commit + Push + PR a `dev-2` → https://github.com/cubiculo-digital/Cubiculo-Digital/pull/64
 
 ---
 
