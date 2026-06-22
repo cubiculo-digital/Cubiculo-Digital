@@ -58,7 +58,10 @@ export const schema = createSchema({
           if (!context.currentUser) return null;
           return prisma.user.findUnique({ where: { id: context.currentUser.userId } });
         },
-        users: async () => await prisma.user.findMany(),
+        users: async (_, __, context: GraphQLContext) => {
+          if (!context.currentUser) throw new Error('No autorizado');
+          return await prisma.user.findMany();
+        },
       }
     },
     authResolvers,
