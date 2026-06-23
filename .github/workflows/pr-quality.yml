@@ -1,0 +1,50 @@
+# =============================================================================
+# 👮 PR Quality Gate — INFORMATIVO (no bloquea)
+# =============================================================================
+# Propósito: Guiar al equipo sobre naming conventions y calidad de PRs.
+# NO bloquea merges — es una guía, no una barrera.
+# Cuando el equipo esté consistentemente siguiendo las convenciones,
+# se puede quitar 'continue-on-error: true' y hacerlo requerido.
+# =============================================================================
+
+name: "👮 PR Quality Gate"
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, ready_for_review]
+
+jobs:
+  check-branch:
+    name: "🔍 Branch Naming"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Source is not main
+        if: github.head_ref == 'main'
+        run: |
+          echo "⚠️ AVISO: No recomendamos hacer PR desde 'main'"
+          echo "   Crea una rama feature desde 'dev' en su lugar."
+      
+      - name: Naming convention check
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          PATTERN='^(feat|fix|chore|docs|refactor)/[a-z0-9-]+$'
+          if echo "$BRANCH" | grep -qE "$PATTERN"; then
+            echo "✅ Branch name '$BRANCH' sigue la convención."
+          else
+            echo "⚠️ AVISO: Branch '$BRANCH' no sigue feat/fix/chore/docs/refactor/<desc>"
+            echo "   Esto es informativo — no bloquea el merge."
+          fi
+
+  check-commits:
+    name: "📝 Commit Convention"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check commit messages
+        run: |
+          echo "📝 Revisando mensajes de commit..."
+          echo "   (Informativo — no bloquea)"

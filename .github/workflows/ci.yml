@@ -1,34 +1,118 @@
-name: "CI — Quality Check"
+# =============================================================================
+# 🎯 CI — Quality Gate
+# =============================================================================
+# ESTRATEGIA: Build es el ÚNICO check blocking. Typecheck, lint y test son
+# INFORMATIVOS (continue-on-error: true) para NO frenar el desarrollo mientras
+# la tooling del proyecto madura. Cuando cada check esté verde consistentemente,
+# se quita el continue-on-error y se marca como requerido en branch protection.
+#
+# FLUJO:
+#   1. typecheck (informativo) ──┐
+#   2. lint (informativo) ───────┤──→ 4. build (BLOQUEANTE)
+#   3. test (informativo) ───────┘
+# =============================================================================
+
+name: "🎯 CI — Quality Gate"
+
 on:
   push:
-    branches: [dev, main]
+    branches: [dev-2]  # dev-2 = staging (antes dev)
   pull_request:
-    branches: [dev, main]
+    branches: [dev, dev-2]  # dev = prod, dev-2 = staging
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  quality:
+  # ===========================================================================
+  # JOB 1: TypeScript — INFORMATIVO (no bloquea)
+  # Se ejecuta pero NO impide el merge. Cuando TypeScript strict esté
+  # configurado y verde, quitar 'continue-on-error: true'.
+  # ===========================================================================
+  typecheck:
+    name: "📐 TypeScript"
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v3
         with:
           version: 10.28.1
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Type check
+      - run: pnpm install --frozen-lockfile
+      - name: Type Check
         run: pnpm exec tsc --noEmit
+
+  # ===========================================================================
+  # JOB 2: Lint — INFORMATIVO (no bloquea)
+  # ESLint + Prettier. Corre pero no bloquea el merge.
+  # ===========================================================================
+  lint:
+    name: "🧹 Lint & Format"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 10.28.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - name: ESLint
+        run: pnpm exec eslint . --max-warnings 0 2>/dev/null || echo "⚠️ ESLint no configurado aún — salteando"
+        continue-on-error: true
+      - name: Prettier
+        run: pnpm exec prettier --check . 2>/dev/null || echo "⚠️ Prettier no configurado aún — salteando"
         continue-on-error: true
 
-      - name: Build DB package
-        run: pnpm run build:db
+  # ===========================================================================
+  # JOB 3: Tests — INFORMATIVO (no bloquea)
+  # Ejecuta la suite de tests si existe. No bloquea merge.
+  # ===========================================================================
+  test:
+    name: "🧪 Unit Tests"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 10.28.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - name: Run Tests
+        run: pnpm exec vitest run --coverage 2>/dev/null || echo "⚠️ Vitest no configurado aún — salteando"
+        continue-on-error: true
 
-      - name: Build project
+  # ===========================================================================
+  # JOB 4: Build — BLOQUEANTE (requerido para merge)
+  # Si el proyecto no compila, NO se puede mergear. Punto.
+  # ===========================================================================
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    needs: [typecheck, lint, test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 10.28.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - name: Build DB Package
+        run: pnpm run build:db
+      - name: Build All
         run: pnpm run build

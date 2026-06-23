@@ -7,15 +7,18 @@
 
 ## 🚩 ESTADO ACTUAL
 - **Tarea activa:** ⏸ Sin tarea activa — esperando instrucciones
-- **Última completada:** #001 — Configuración agéntica inicial (PRD2 + agent files) ✅
-- **Branch actual:** `main` (o `dev` si existe)
+- **Última completada:** #002 — GitHub Full Setup + 54 Issues + Projects Board ✅
+- **Branch actual:** `dev-2` (staging/desarrollo)
 - **Deploy pendiente:** No hay deploys activos
 - **Archivo de referencia rápida:** `actual.md`
 - **Documento de visión:** PRD2.md (fuente de verdad del producto)
+- **Plan de guerra:** PLAN_DE_GUERRA.md (54 issues, 6 milestones, daily battle plan)
 
 ---
 
 ## 📂 HISTORIAL DE TAREAS
+- **#002 — GitHub Full Setup** (2026-06-14) ✅ — Org, repo, branch protection, labels, milestones, 54 issues, Projects board poblado
+- **#001 — Configuración agéntica inicial** (2026-06-12) ✅ — AGENTS.md, opencode.json, reglas, skills, workflows, bitácoras
 
 ---
 

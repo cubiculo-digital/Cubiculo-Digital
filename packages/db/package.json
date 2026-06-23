@@ -12,6 +12,7 @@
   },
   "scripts": {
     "generate": "prisma generate",
+    "prebuild": "prisma generate",
     "build": "tsc",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy"

@@ -1,0 +1,127 @@
+# =============================================================================
+# 🏷️ GitHub Labels — Cubículo Digital
+# =============================================================================
+# Auto-sync usando: gh label clone <source-repo> --force
+# O crear manualmente: gh label create <name> --color <hex> --description "<desc>"
+# =============================================================================
+
+# ── Track Labels ──────────────────────────────────────────────────────────────
+- name: "track/security"
+  color: "B60205"
+  description: "🔐 Security fixes - P0 blocking"
+
+- name: "track/refactor"
+  color: "C5DEF5"
+  description: "🏛️ Architecture refactor"
+
+- name: "track/agent"
+  color: "5319E7"
+  description: "🧠 Agent system implementation"
+
+- name: "track/feature"
+  color: "0E8A16"
+  description: "🎯 Product feature"
+
+- name: "track/infra"
+  color: "1D76DB"
+  description: "🔄 CI/CD & DevOps"
+
+- name: "track/testing"
+  color: "FBCA04"
+  description: "🧪 Tests and coverage"
+
+- name: "track/i18n"
+  color: "BFDADC"
+  description: "🌐 Internationalization"
+
+# ── Priority Labels ───────────────────────────────────────────────────────────
+- name: "priority/p0"
+  color: "B60205"
+  description: "🔴 Critical - bloqueante"
+
+- name: "priority/p1"
+  color: "D93F0B"
+  description: "🟡 High"
+
+- name: "priority/p2"
+  color: "0E8A16"
+  description: "🟢 Medium"
+
+- name: "priority/p3"
+  color: "C2E0C6"
+  description: "⚪ Low / Future"
+
+# ── Day Labels (Hackathon Q3 2026) ───────────────────────────────────────────
+- name: "day/1"
+  color: "F9D0C4"
+  description: "Day 1 — Foundation"
+
+- name: "day/2"
+  color: "F9D0C4"
+  description: "Day 2 — Agent System"
+
+- name: "day/3"
+  color: "F9D0C4"
+  description: "Day 3 — Agent Features"
+
+- name: "day/4"
+  color: "F9D0C4"
+  description: "Day 4 — Export + Analytics"
+
+- name: "day/5"
+  color: "F9D0C4"
+  description: "Day 5 — i18n + Tests"
+
+- name: "day/6"
+  color: "F9D0C4"
+  description: "Day 6 — Demo Ready"
+
+# ── Agent Labels ──────────────────────────────────────────────────────────────
+- name: "agent/ventas"
+  color: "5319E7"
+  description: "🧠 Ventas Agent"
+
+- name: "agent/rrhh"
+  color: "5319E7"
+  description: "🧠 RRHH Agent"
+
+- name: "agent/operaciones"
+  color: "5319E7"
+  description: "🧠 Operaciones Agent"
+
+- name: "agent/tecnologia"
+  color: "5319E7"
+  description: "🧠 Tecnologia Agent"
+
+- name: "agent/finanzas"
+  color: "5319E7"
+  description: "🧠 Finanzas Agent"
+
+- name: "agent/marketing"
+  color: "5319E7"
+  description: "🧠 Marketing Agent"
+
+- name: "agent/estrategia"
+  color: "5319E7"
+  description: "🧠 Estrategia Agent"
+
+- name: "agent/legal"
+  color: "5319E7"
+  description: "🧠 Legal Agent"
+
+# ── Meta Labels ───────────────────────────────────────────────────────────────
+- name: "blocked"
+  color: "000000"
+  description: "🚫 Blocked by another issue"
+
+- name: "good-first-issue"
+  color: "7057ff"
+  description: "🌱 Good for new contributors"
+
+- name: "needs-review"
+  color: "FBCA04"
+  description: "👀 Needs review"
+
+- name: "demo-critical"
+  color: "B60205"
+  description: "🏆 Critical for demo day"
