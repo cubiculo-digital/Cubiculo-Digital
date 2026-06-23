@@ -1,34 +1,23 @@
-# 🛠️ TAREA: SEC-03 — Auth en users query [ACTIVA]
-**ID:** #004 | **Estado:** 🟡 EN CURSO | **Fecha:** 2026-06-22
+# 🛠️ TAREA: [PRÓXIMA]
+**ID:** #XXX | **Estado:** ⏸ PENDIENTE | **Fecha:** 2026-06-22
 
 ---
 
 ## 🎯 OBJETIVO FINAL
-> Que la query `users` en GraphQL requiera autenticación JWT, impidiendo que clientes no autenticados puedan leer el listado completo de usuarios registrados.
+> 
 
 ---
 
 ## 🚦 PUNTO DE CONTROL
-- **Lo último que funcionó:** FASE 0 completada — `dev-2` sincronizada, build baseline verde (0 errors), PRs #58 (SEC-01) y #64 (SEC-02) confirmados merged.
-- **Dónde se rompió/detuvo:** N/A — FASE 1 en progreso.
-- **Siguiente acción inmediata:** Ejecutar FASE 2 — implementar guard de autenticación en resolver `users`.
+- **Lo último que funcionó:** SEC-03 (#004) completado — Auth guard implementado en `users` query, PR pendiente a `dev-2`.
+- **Dónde se rompió/detuvo:** N/A — tarea no iniciada.
+- **Siguiente acción inmediata:** Pendiente de asignación.
 
 ---
 
 ## 📝 CAMBIOS TÉCNICOS CLAVE
-- [x] FASE 0: Pre-Flight — `dev-2` verificada, builds verdes
-- [x] FASE 1: Bitácora creada + Rama creada
-- [ ] FASE 2: Implementar auth guard en `users` resolver
-- [ ] FASE 2: Verificar build API → 0 errors
-- [ ] FASE 3: Post-Flight + Self-Maintenance
-- [ ] FASE 4: PR a `dev-2`
+- [ ] Pendiente de planificar
 
 ---
 
 ## ⚠️ NOTAS DE MEMORIA
-- *Regla:* Toda query protegida DEBE verificar `context.currentUser` (global-context.md §9)
-- *Regla:* `users` query requiere autenticación — P0 (api-schema.md §Notas de Seguridad)
-- *Regla:* PRs individuales por issue — CTO mindset
-- *Regla:* Build DEBE pasar antes de cada commit
-- *Branch:* `fix/003-sec-03-auth-users-query`
-- *Base:* `dev-2`

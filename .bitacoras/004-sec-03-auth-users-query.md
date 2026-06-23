@@ -1,5 +1,5 @@
 # 🛠️ TAREA: SEC-03 — Auth en users query
-**ID:** #004 | **Estado:** 🟡 EN CURSO | **Fecha:** 2026-06-22
+**ID:** #004 | **Estado:** ✅ COMPLETADO | **Fecha:** 2026-06-22
 
 ---
 
@@ -10,9 +10,9 @@
 
 ## 🚦 PUNTO DE CONTROL
 
-- **Lo último que funcionó:** FASE 0 completada — `dev-2` sincronizada, build baseline verde (0 errors), PRs #58 (SEC-01) y #64 (SEC-02) confirmados merged.
-- **Dónde se rompió/detuvo:** N/A — recién iniciando implementación.
-- **Siguiente acción inmediata:** Ejecutar FASE 2 — implementar guard de autenticación en resolver `users`.
+- **Lo último que funcionó:** FASE 3 completada — Post-Flight + Self-Maintenance sin cambios requeridos.
+- **Dónde se rompió/detuvo:** N/A — tarea completada exitosamente.
+- **Siguiente acción inmediata:** N/A — tarea finalizada. Pendiente aprobación para PR a `dev-2`.
 
 ---
 
@@ -20,10 +20,10 @@
 
 - [x] FASE 0: Pre-Flight — `dev-2` verificada, builds verdes
 - [x] FASE 1: Bitácora + Rama creada
-- [ ] FASE 2: Implementar `if (!context.currentUser) throw new Error('No autorizado')` en `users` resolver
-- [ ] FASE 2: Verificar build API → 0 errors
-- [ ] FASE 3: Post-Flight + Self-Maintenance
-- [ ] FASE 4: PR a `dev-2`
+- [x] FASE 2: Implementar `if (!context.currentUser) throw new Error('No autorizado')` en `users` resolver
+- [x] FASE 2: Verificar build API → 0 errors
+- [x] FASE 3: Post-Flight + Self-Maintenance — Sin cambios requeridos
+- [ ] FASE 4: PR a `dev-2` — Pendiente de aprobación
 
 ---
 
