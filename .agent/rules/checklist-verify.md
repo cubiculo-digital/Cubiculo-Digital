@@ -23,9 +23,9 @@ Este archivo es la fuente de verdad para verificar que sigo las reglas del proye
 - [ ] Paso 5: Push a la rama remota
 
 ### 3.1. Creación de Bitácora (TRACKEABLE)
+- [ ] Usar `@git-branch-formatter` para nombre de rama
 - [ ] Crear archivo `.bitacoras/###-nombre-tarea.md` con plantilla ANTES de escribir código
 - [ ] El archivo debe existir en el sistema de archivos antes de cualquier cambio
-- [ ] Usar `@git-branch-formatter` para nombre de rama
 - [ ] NO escribir código hasta que bitácora exista (regla NO negociable)
 
 ### 4. Reglas Técnicas
