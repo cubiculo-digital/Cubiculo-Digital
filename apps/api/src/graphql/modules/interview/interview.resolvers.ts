@@ -51,14 +51,14 @@ export const interviewResolvers = {
         }));
 
         // VERIFICACIÓN 1: ¿Salió el prompt? 
-        console.log(`[OPENAI_INVOKE] Enviando ${contextForAI.length} respuestas a GPT-4`);
+        console.log(`[GROQ_INVOKE] Enviando ${contextForAI.length} respuestas a Llama-3.3-70b`);
 
         const user = await prisma.user.findUnique({ where: { id: currentUser.userId } });
         const feedbackContent = await aiService.generateBusinessFeedback(user?.name || "Cliente", contextForAI);
 
         // VERIFICACIÓN 2: ¿Retornó OpenAI?
         if (!feedbackContent) {
-          console.error(`[OPENAI_ERROR] OpenAI devolvió contenido vacío para ${currentUser.userId}`);
+          console.error(`[GROQ_ERROR] Groq devolvió contenido vacío para ${currentUser.userId}`);
           throw new Error("La IA no generó respuesta.");
         }
 
