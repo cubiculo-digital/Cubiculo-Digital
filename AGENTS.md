@@ -25,6 +25,7 @@ Para **cualquier tarea** (Exenta o Trackeable):
    - [ ] Si la tarea es de tipo `feat/`, leer `.agent/skills/feature-implementation/SKILL.md` (proceso de implementación)
 
 3. **INICIALIZACIÓN DE BITÁCORA (Solo para TRACKEABLE):**
+   - [ ] Usar `@git-branch-formatter` para nombre de rama
    - [ ] Crear archivo `.bitacoras/###-nombre-tarea.md` ANTES de escribir código
    - [ ] Usar plantilla de `00-plantilla.md`
    - [ ] NO escribir ninguna línea de código hasta que la bitácora exista
