@@ -10,18 +10,13 @@ name: "🏆 Deploy Production"
 
 on:
   push:
-    branches: [dev]  # dev = producción (antes main)
-  workflow_dispatch:  # Permite deploy manual de emergencia
-
-env:
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    branches: [main, dev]  # Se activa ÚNICAMENTE cuando el código entra a producción y staging(main y dev)
+  workflow_dispatch:
 
 jobs:
   deploy:
-    name: "🚀 Production Deploy"
+    name: "🚀 Production Database Sync"
     runs-on: ubuntu-latest
-    environment: production
-    if: env.VERCEL_TOKEN != ''
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -35,22 +30,7 @@ jobs:
       - run: pnpm run build:db
       - run: pnpm run build
 
-      - name: Deploy API to Vercel (Production)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_API_PROJECT_ID }}
-          vercel-args: '--prod'
-
-      - name: Deploy Web to Vercel (Production)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_WEB_PROJECT_ID }}
-          vercel-args: '--prod'
-
+      # Se ejecuta la migración en la base de datos de producción
       - name: DB Migration (Production)
         run: pnpm --filter @cubiculo/db exec prisma migrate deploy
         env:

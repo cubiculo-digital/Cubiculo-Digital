@@ -3,7 +3,7 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, edited, synchronized]
+    types: [opened, edited, synchronize, ready_for_review]
 
 jobs:
   check_source_branch:
