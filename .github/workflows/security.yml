@@ -9,10 +9,14 @@
 name: "🔐 Security Scan"
 
 on:
+  push:
+    branches:
+      - dev
   pull_request:
-    branches: [dev, dev-2]  # dev = prod, dev-2 = staging
+    branches: [main, dev]  # main = prod, dev = staging
   schedule:
     - cron: '0 6 * * *'  # Diario a las 6 AM UTC
+  workflow_dispatch:
 
 jobs:
   audit:
@@ -33,14 +37,24 @@ jobs:
         run: pnpm audit --audit-level=high
         continue-on-error: true
 
+# ===========================================================================
+# JOB: Secrets Scan (Trufflehog)
+# ===========================================================================
   secrets:
-    name: "🕵️ Secrets Detection"
+    name: "🔒 Secrets Scan"
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
-      - name: TruffleHog Secrets Scan
-        uses: trufflesecurity/trufflehog@v3
         with:
+          fetch-depth: 0 # IMPORTANTE: Trufflehog necesita escanear todo el historial de commits
+
+      - name: Trufflehog OSS
+        # CORRECCIÓN: Se utiliza la sintaxis oficial apuntando a la rama main activa
+        uses: trufflesecurity/trufflehog@main
+        with:
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
           extra_args: --only-verified --results=verified,unknown
+
         continue-on-error: true
