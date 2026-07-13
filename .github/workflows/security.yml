@@ -9,9 +9,6 @@
 name: "🔐 Security Scan"
 
 on:
-  push:
-    branches:
-      - dev
   pull_request:
     branches: [main, dev]  # main = prod, dev = staging
   schedule:

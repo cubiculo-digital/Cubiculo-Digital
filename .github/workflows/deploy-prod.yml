@@ -9,8 +9,10 @@
 name: "🏆 Deploy Production"
 
 on:
-  push:
-    branches: [main, dev]  # Se activa ÚNICAMENTE cuando el código entra a producción y staging(main y dev)
+  pull_request:
+    branches:
+      - main
+      - dev
   workflow_dispatch:
 
 jobs:
