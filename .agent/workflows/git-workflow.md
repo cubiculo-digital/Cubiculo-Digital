@@ -45,8 +45,24 @@ Este workflow define los pasos estandarizados y obligatorios para trabajar de fo
 ## 3. Desarrollo
 *Detente y analiza los requerimientos Fullstack (API/Web) basándote en @global-context antes de generar archivos.*
 
+## 3.5. Protocolo de Stops por Fase — OBLIGATORIO (NO NEGOCIABLE)
+*Este protocolo se ejecuta entre el desarrollo de cada fase y el commit. Aplica a TODA tarea que requiera más de un paso.*
+
+1. **STOP:** Después de implementar los cambios de UNA fase, DETENTE. NO continúes a la siguiente fase.
+2. **BUILD CHECK:** Ejecuta el build respectivo:
+   - `pnpm run build:api` — 0 errores (si la fase toca apps/api)
+   - `pnpm run build:web` — 0 errores (si la fase toca apps/web)
+   - `pnpm run build` — 0 errores (si toca ambos o archivos de configuración)
+   - Si falla -> corrige errores. NO sigas, NO comitees.
+3. **Solo después de build verde**, procede a la sección 4 (Commit).
+4. **PUSH** inmediato después del commit (sección 5).
+5. **BITÁCORA:** Actualiza `.bitacoras/actual.md` con el progreso de la fase.
+6. **APROBACIÓN:** Espera la aprobación explícita del usuario. NO pases a la siguiente fase sin aprobación.
+
+> ⚠️ Regla: Una fase = un commit. Si la tarea tiene múltiples fases, cada fase produce exactamente un commit con su build check.
+
 ## 4. Confirmación de Cambios (Commit)
-*Una vez terminados tus cambios, guárdalos siguiendo las convenciones.*
+*Una vez terminados tus cambios y verificado el build (sección 3.5), guárdalos siguiendo las convenciones.*
 
 1. Añade todos los archivos modificados al área de preparación:
    ```bash

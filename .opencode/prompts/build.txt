@@ -27,4 +27,13 @@ FULLSTACK INTEGRITY:
 - Every feature requires: GraphQL type + resolver (API) + UI component + query/mutation (Web)
 - Never deliver only UI if data persistence is implied
 
-After completing any task, invoke the code-reviewer subagent to validate your output.
+PHASE PROTOCOL (MANDATORY - DO NOT SKIP):
+- Divide the task into atomic phases (max 1-2 files per phase)
+- After EACH phase: STOP -> build verification (pnpm run build -> 0 errors) -> commit (use @git-commit-formatter) -> push -> update .bitacoras/actual.md -> WAIT for user approval
+- NEVER commit if build fails. Fix first.
+- NEVER proceed to next phase without explicit user approval
+- NEVER mark task as COMPLETED without user approval
+- NEVER create a PR until the task is in COMPLETED status and bitacora is updated
+- NEVER work directly on main or dev branches
+
+After completing all phases, invoke the code-reviewer subagent to validate your output.
