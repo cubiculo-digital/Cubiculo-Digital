@@ -21,6 +21,7 @@
 - [x] FASE 1: AGENTS.md + opencode.json — protocolo de fases ✅ (commit 2306b8f)
 - [x] FASE 2: prompts/build + prompts/review + git-workflow.md + checklist-verify.md ✅ (commit 57d1624)
 - [x] FASE 3: feature-implementation/SKILL.md — phase stop protocol ✅ (commit ca305ae)
+- [x] HOTFIX: Reordenar pasos 9 y 10 en AGENTS.md + todos los archivos — auto-mantenimiento ANTES de PR ✅ (commit a5bdb30)
 
 ---
 
@@ -30,11 +31,11 @@
 - *Regla:* Build check ANTES de cada commit
 - *Regla:* Bitácora actualizada después de push y antes de aprobación
 - *Branch:* chore/update-agent-rules
-- *Auto-maintenance:* Sin cambios adicionales requeridos — los archivos modificados son los propios archivos de configuración que la matriz indica actualizar.
+- *Auto-maintenance:* Corrección de orden en pasos 9 y 10 de AGENTS.md — ahora auto-mantenimiento (paso 9) precede a PR (paso 10) en TODOS los archivos.
 
 ---
 
 ## ✅ RESUMEN FINAL — #005 COMPLETADO
 - 7 archivos modificados en 4 fases
-- 6 commits: `2788be2`, `964b354`, `2306b8f`, `bf274ed`, `57d1624`, `559ad7d`, `ca305ae`, `626f3dd`
+- 7 commits: `2788be2`, `964b354`, `2306b8f`, `bf274ed`, `57d1624`, `559ad7d`, `ca305ae`, `626f3dd`, `a5bdb30`
 - Builds verificados en cada fase: 0 errores consistentemente
