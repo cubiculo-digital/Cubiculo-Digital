@@ -10,14 +10,14 @@
 
 ## 🚦 PUNTO DE CONTROL (Contexto de Reanudación)
 
-- **Lo último que funcionó:** Plan aprobado, arrancando ejecución.
-- **Dónde se rompió/detuvo:** N/A — inicio de tarea.
-- **Siguiente acción inmediata:** Ejecutar FASE 0 — Reemplazar "dev-2" -> "dev" en WORKFLOW.md.
+- **Lo último que funcionó:** ✅ FASE 0 completada — WORKFLOW.md y README.md actualizados (dev-2 → dev). Commit `2788be2` pusheado.
+- **Dónde se rompió/detuvo:** Pendiente de aprobación para continuar a FASE 1.
+- **Siguiente acción inmediata:** Esperar aprobación para FASE 1 (AGENTS.md + opencode.json).
 
 ---
 
 ## 📝 CAMBIOS TÉCNICOS CLAVE
-- [ ] FASE 0: WORKFLOW.md — reemplazar dev-2 por dev
+- [x] FASE 0: WORKFLOW.md — reemplazar dev-2 por dev ✅ (commit 2788be2, pusheado)
 - [ ] FASE 1: AGENTS.md + opencode.json — agregar protocolo de fases
 - [ ] FASE 2: prompts/build + prompts/review + git-workflow.md + checklist-verify.md
 - [ ] FASE 3: feature-implementation/SKILL.md + refinamientos finales
