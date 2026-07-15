@@ -10,16 +10,16 @@
 
 ## 🚦 PUNTO DE CONTROL (Contexto de Reanudación)
 
-- **Lo último que funcionó:** ✅ FASE 1 completada — AGENTS.md (sección 3 agregada) + opencode.json (prompts plan/build/review actualizados). Commit `2306b8f` pusheado.
-- **Dónde se rompió/detuvo:** Pendiente de aprobación para continuar a FASE 2.
-- **Siguiente acción inmediata:** Esperar aprobación para FASE 2 (prompts/build.txt + prompts/review.txt + git-workflow.md + checklist-verify.md).
+- **Lo último que funcionó:** ✅ FASE 2 completada — build.txt (phase protocol), review.txt (build verification), git-workflow.md (section 3.5), checklist-verify.md (section 2.5 + 4.5 ampliado). Commit `57d1624` pusheado.
+- **Dónde se rompió/detuvo:** Pendiente de aprobación para continuar a FASE 3.
+- **Siguiente acción inmediata:** Esperar aprobación para FASE 3 (feature-implementation/SKILL.md + refinamientos finales).
 
 ---
 
 ## 📝 CAMBIOS TÉCNICOS CLAVE
 - [x] FASE 0: WORKFLOW.md — reemplazar dev-2 por dev ✅ (commit 2788be2)
 - [x] FASE 1: AGENTS.md + opencode.json — protocolo de fases ✅ (commit 2306b8f)
-- [ ] FASE 2: prompts/build + prompts/review + git-workflow.md + checklist-verify.md
+- [x] FASE 2: prompts/build + prompts/review + git-workflow.md + checklist-verify.md ✅ (commit 57d1624)
 - [ ] FASE 3: feature-implementation/SKILL.md + refinamientos finales
 
 ---
