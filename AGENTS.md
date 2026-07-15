@@ -47,9 +47,34 @@ Para **cualquier tarea** (Exenta o Trackeable):
 3. **Actualización en Tiempo Real:** DEBES editar el archivo `actual.md` tras cada hito completado (marcando checks `[x]` y actualizando el `## 🚦 PUNTO DE CONTROL`). No esperes al final de la sesión.
 4. **Cierre:** Al finalizar, cambiar estado a `✅ COMPLETADO`, archivar el contenido y limpiar `actual.md`, al limpiar `actual.md` DEBES MANTENER el formato de `.bitacoras/00-plantilla.md` (NO NEGOCIABLE).
 
-4.5. **AUTO-MANTENIMIENTO (Post-Flight):** Tras marcar la tarea como `✅ COMPLETADO`, ejecutar el protocolo definido en `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios arquitectónicos (nuevos patrones, stack, rutas, reglas), actualizar los archivos de configuración del agente correspondientes ANTES del paso 5.
+4.5. **AUTO-MANTENIMIENTO (Post-Flight):** Tras marcar la tarea como `✅ COMPLETADO`, ejecutar el protocolo definido en `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios arquitectónicos (nuevos patrones, stack, rutas, reglas), actualizar los archivos de configuración del agente correspondientes ANTES del Pull Request.
 
 5. **Workflow:** Seguir estrictamente Git Workflow y estándares de naming.
+
+---
+
+### 3. PROTOCOLO DE FASES CON STOPS OBLIGATORIOS (NO NEGOCIABLE)
+> Esta sección es de CUMPLIMIENTO ABSOLUTO. Ningún agente puede omitirla, ignorarla o considerarla "sugerida". Se aplica a TODA tarea con múltiples fases.
+
+**Principio rector:** El protocolo de fases rige el flujo *entre* fases. La regla de eficiencia (Sección 2/4) rige el comportamiento *dentro* de una fase. Ambas conviven sin contradicción.
+
+1. **Desglose en Fases:** Divide la tarea en fases atómicas (máximo 1-2 archivos por fase). Cada fase debe ser autónoma y verificable.
+2. **STOP por Fase:** Después de CADA fase completada, DETENTE. NO continúes a la siguiente. No hay excepciones.
+3. **Verificación de Build:** Antes de hacer commit, ejecuta el build respectivo:
+   - API: `pnpm run build:api` — 0 errores
+   - Web: `pnpm run build:web` — 0 errores
+   - Full: `pnpm run build` — 0 errores
+   - Si el build falla, NO hagas commit. Corrige primero.
+4. **Commit por Fase:** Solo después de build verde, haz commit usando `@git-commit-formatter`.
+5. **Push:** Sube los cambios inmediatamente después del commit a la rama remota.
+6. **Actualización de Bitácora:** Actualiza `.bitacoras/actual.md` con el progreso DESPUÉS del push y ANTES de pedir aprobación. Edita también la bitácora de la tarea (`###-nombre.md`) si existe.
+7. **Esperar Aprobación:** NO pases a la siguiente fase hasta que el usuario la apruebe explícitamente. Envía un mensaje claro de STOP cuando estés listo.
+8. **Cierre Final:** Solo cuando todas las fases estén completadas y aprobadas, cambia la bitácora a `✅ COMPLETADO`. Ninguna tarea se da por COMPLETADA sin aprobación explícita del usuario.
+9. **Auto-Mantenimiento Post-Flight:** Tras marcar como `✅ COMPLETADO`, ejecutar el protocolo de `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios en la configuración del agente, actualizar los archivos correspondientes.
+10. **PR solo después de Auto-Mantenimiento:** No crees Pull Request hasta que:
+    - La tarea esté en estado `✅ COMPLETADO` y la bitácora esté archivada **Y**
+    - El auto-mantenimiento post-flight (paso 9) se haya ejecutado y completado.
+    - El PR es el ÚLTIMO paso, después de todo lo anterior.
 
 ---
 
@@ -62,6 +87,7 @@ Para **cualquier tarea** (Exenta o Trackeable):
 3. **Comunicación Estructurada:** Prioriza tablas, listas y bloques de código. La información debe ser escaneable.
 4. **Concisión Técnica Senior:** Lenguaje directo. Cero explicaciones de conceptos básicos (React, Git, etc.) a menos que se solicite.
 5. **Edición Silenciosa:** Actualiza la bitácora `actual.md` sin anunciar cada edición, a menos que el progreso cambie el plan aprobado.
+   > ⚠️ La "edición silenciosa" aplica a micro-actualizaciones dentro de una fase. NO reemplaza el paso 6 del Protocolo de Fases (actualizar bitácora después de push y antes de aprobación entre fases). El protocolo de fases tiene precedencia sobre cualquier regla de eficiencia.
 
 ---
 

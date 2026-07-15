@@ -140,8 +140,8 @@ Este es el ritual que repetís **cada vez que trabajás en una tarea nueva**.
 Siempre, **SIEMPRE**, antes de arrancar, asegurate de tener la última versión del proyecto:
 
 ```bash
-git checkout dev-2
-git pull origin dev-2
+git checkout dev
+git pull origin dev
 ```
 
 > `git checkout` cambia de rama. `git pull` trae los cambios nuevos.
@@ -208,7 +208,7 @@ Ahora tenés que pedir que **revisen tu trabajo** antes de que pase al proyecto 
 1. Andá a [https://github.com/cubiculo-digital/Cubiculo-Digital](https://github.com/cubiculo-digital/Cubiculo-Digital)
 2. Te va a aparecer un banner amarillo que dice **"tu-rama had recent pushes"** → hacé clic en **"Compare & pull request"**
 3. Llená el formulario:
-   - **Base:** `dev-2` (NO `dev` ni `main`)
+   - **Base:** `dev` (NO `dev` ni `main`)
    - **Compare:** tu rama (ej: `feat/password-reset`)
    - **Title:** Poné el título del issue
    - **Description:** Describí qué hiciste
@@ -216,7 +216,7 @@ Ahora tenés que pedir que **revisen tu trabajo** antes de que pase al proyecto 
 
 O desde la terminal:
 ```bash
-gh pr create --base dev-2 --title "Título de tu tarea" --body "Descripción de lo que hiciste"
+gh pr create --base dev --title "Título de tu tarea" --body "Descripción de lo que hiciste"
 ```
 
 > Después de crear el PR, **GitHub automáticamente corre unos chequeos** (CI).
@@ -329,7 +329,7 @@ Estas reglas **no se rompen**. Si las rompés, algo se va a romper.
 
 | Regla | Por qué |
 |-------|---------|
-| ⛔ **NUNCA trabajes en `main` ni `dev`** | Esas ramas son sagradas. Siempre creá tu rama desde `dev-2` |
+| ⛔ **NUNCA trabajes en `main` ni `dev`** | Esas ramas son sagradas. Siempre creá tu rama desde `dev` |
 | ⛔ **NUNCA mergees sin aprobación** | Alguien tiene que revisar tu PR antes de que pase |
 | ⛔ **NUNCA mergees si el CI está rojo** | "Después lo arreglo" = bugs en producción. El CI tiene que estar verde |
 | ✅ **SIEMPRE hacé `git pull` antes de arrancar** | Tu compu se queda vieja. Traé lo último primero |
@@ -386,7 +386,7 @@ git commit -m "fix: resolver conflictos"
 
 ```bash
 # Si querés borrar la rama que creaste por error:
-git checkout dev-2
+git checkout dev
 git branch -D feat/nombre-erroneo
 
 # Ahora creá la correcta:

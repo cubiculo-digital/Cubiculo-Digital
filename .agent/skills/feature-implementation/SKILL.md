@@ -50,7 +50,20 @@ git checkout -b feat/<descripcion>
 git push origin feat/<descripcion> --set-upstream
 ```
 
-## 3. Implementación — 4 Capas Obligatorias
+## 3. Implementación — 4 Capas Obligatorias + Fases
+
+### 3.1. División en Fases
+Cada feature DEBE dividirse en fases atómicas (máximo 1-2 archivos por fase). Cada fase implementa una o dos de las 4 capas y sigue el Protocolo de Stops.
+
+**Ejemplo de división en fases para una feature:**
+```
+Fase 1: Schema GraphQL + type definitions (Capa 1)
+Fase 2: Resolver + service logic (Capa 2)
+Fase 3: Query/Mutation del frontend (Capa 3)
+Fase 4: UI Component (Capa 4)
+```
+
+### 3.2. Las 4 Capas Obligatorias
 
 Toda feature con datos persistentes DEBE implementar:
 
@@ -141,10 +154,13 @@ describe('myNewResolver', () => {
 });
 ```
 
-## 5. Pre-commit Checklist
+## 5. Pre-commit Checklist (OBLIGATORIO)
+
+> ⚠️ El build check es BLOQUEANTE. NO hacer commit si el build falla.
 
 Antes de cada commit, verificar:
 ```markdown
+- [ ] Build check: `pnpm run build` (o `build:api`/`build:web`) — 0 errores (BLOQUEANTE)
 - [ ] `pnpm exec tsc --noEmit` — 0 errors
 - [ ] Tests nuevos escritos y pasando
 - [ ] Dark mode implementado (si aplica UI)
@@ -181,6 +197,55 @@ Scope común: `auth`, `api`, `web`, `db`, `ai`, `dashboard`, `interview`, `expor
 | Description | Template: qué + por qué + cómo + archivos + screenshots |
 | Reviewer | Auto-asignar code-reviewer |
 | Merge | Squash merge a `dev` |
+
+## 8. Protocolo de Stops por Fase (NO NEGOCIABLE)
+
+Toda implementación DEBE dividirse en fases. Por cada fase:
+
+1. **🛑 STOP** — Detente después de implementar los cambios de UNA fase. NO continúes a la siguiente.
+2. **🏗️ BUILD** — Ejecuta `pnpm run build` (o `build:api`/`build:web`). Debe dar 0 errores. Si falla, corrige.
+3. **💾 COMMIT** — Solo después de build verde. Usa `@git-commit-formatter`. Un commit por fase.
+4. **📤 PUSH** — Sube los cambios inmediatamente a la rama remota.
+5. **📝 LOG** — Actualiza `.bitacoras/actual.md` con el progreso de la fase (después del push, ANTES de pedir aprobación).
+6. **✅ APPROVAL** — Espera la aprobación explícita del usuario. Envía un mensaje claro de STOP.
+7. **🔄 NEXT** — Solo después de aprobación, pasa a la siguiente fase.
+
+### 🔴 Reglas Absolutas (Zero Tolerance)
+| # | Regla | Consecuencia |
+|---|-------|-------------|
+| PZ-01 | No hay commit sin build verde (0 errores) | La fase se considera fallida. Rehacer. |
+| PZ-02 | No hay siguiente fase sin aprobación del usuario | No es una sugerencia. Hay que esperar. |
+| PZ-03 | No hay PR sin tarea COMPLETADA + auto-mantenimiento | El PR no se crea hasta que la tarea esté COMPLETADA, bitácora archivada Y auto-mantenimiento post-flight ejecutado. |
+| PZ-04 | No hay COMPLETADO sin aprobación explícita del usuario | La tarea nunca se auto-completa. |
+
+### 🚦 Flujo Completo del Ciclo de Vida
+```
+IDEA
+  ↓
+ISSUE → (crear issue con criterios de aceptación)
+  ↓
+BRANCH → (@git-branch-formatter, desde dev)
+  ↓
+┌──────────────────────────────────────────────────────┐
+│  FASE 1: Capa 1 (Schema)                            │
+│    → BUILD CHECK → COMMIT → PUSH → LOG → APPROVAL   │
+├──────────────────────────────────────────────────────┤
+│  FASE 2: Capa 2 (Resolver)                          │
+│    → BUILD CHECK → COMMIT → PUSH → LOG → APPROVAL   │
+├──────────────────────────────────────────────────────┤
+│  FASE 3: Capa 3 (Query/Mutation)                    │
+│    → BUILD CHECK → COMMIT → PUSH → LOG → APPROVAL   │
+├──────────────────────────────────────────────────────┤
+│  FASE 4: Capa 4 (UI Component)                      │
+│    → BUILD CHECK → COMMIT → PUSH → LOG → APPROVAL   │
+└──────────────────────────────────────────────────────┘
+  ↓
+TEST → (tests unitarios + integración)
+  ↓
+PR → (solo si tarea está COMPLETADA, base = dev)
+  ↓
+MERGE → (squash merge a dev)
+```
 
 ## 7. Referencia Rápida de Comandos
 
