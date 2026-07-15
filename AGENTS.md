@@ -47,7 +47,7 @@ Para **cualquier tarea** (Exenta o Trackeable):
 3. **Actualización en Tiempo Real:** DEBES editar el archivo `actual.md` tras cada hito completado (marcando checks `[x]` y actualizando el `## 🚦 PUNTO DE CONTROL`). No esperes al final de la sesión.
 4. **Cierre:** Al finalizar, cambiar estado a `✅ COMPLETADO`, archivar el contenido y limpiar `actual.md`, al limpiar `actual.md` DEBES MANTENER el formato de `.bitacoras/00-plantilla.md` (NO NEGOCIABLE).
 
-4.5. **AUTO-MANTENIMIENTO (Post-Flight):** Tras marcar la tarea como `✅ COMPLETADO`, ejecutar el protocolo definido en `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios arquitectónicos (nuevos patrones, stack, rutas, reglas), actualizar los archivos de configuración del agente correspondientes ANTES del paso 5.
+4.5. **AUTO-MANTENIMIENTO (Post-Flight):** Tras marcar la tarea como `✅ COMPLETADO`, ejecutar el protocolo definido en `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios arquitectónicos (nuevos patrones, stack, rutas, reglas), actualizar los archivos de configuración del agente correspondientes ANTES del Pull Request.
 
 5. **Workflow:** Seguir estrictamente Git Workflow y estándares de naming.
 
@@ -70,8 +70,11 @@ Para **cualquier tarea** (Exenta o Trackeable):
 6. **Actualización de Bitácora:** Actualiza `.bitacoras/actual.md` con el progreso DESPUÉS del push y ANTES de pedir aprobación. Edita también la bitácora de la tarea (`###-nombre.md`) si existe.
 7. **Esperar Aprobación:** NO pases a la siguiente fase hasta que el usuario la apruebe explícitamente. Envía un mensaje claro de STOP cuando estés listo.
 8. **Cierre Final:** Solo cuando todas las fases estén completadas y aprobadas, cambia la bitácora a `✅ COMPLETADO`. Ninguna tarea se da por COMPLETADA sin aprobación explícita del usuario.
-9. **PR solo después de COMPLETADO:** No crees Pull Request hasta que la tarea esté en estado `✅ COMPLETADO` y la bitácora esté actualizada.
-10. **Auto-Mantenimiento Post-Flight:** Tras marcar como COMPLETADO, ejecutar el protocolo de `.agent/rules/global-context/self-maintenance.md` antes del PR.
+9. **Auto-Mantenimiento Post-Flight:** Tras marcar como `✅ COMPLETADO`, ejecutar el protocolo de `.agent/rules/global-context/self-maintenance.md`. Si la tarea implicó cambios en la configuración del agente, actualizar los archivos correspondientes.
+10. **PR solo después de Auto-Mantenimiento:** No crees Pull Request hasta que:
+    - La tarea esté en estado `✅ COMPLETADO` y la bitácora esté archivada **Y**
+    - El auto-mantenimiento post-flight (paso 9) se haya ejecutado y completado.
+    - El PR es el ÚLTIMO paso, después de todo lo anterior.
 
 ---
 

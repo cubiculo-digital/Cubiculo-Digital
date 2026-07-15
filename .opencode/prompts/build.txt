@@ -33,7 +33,7 @@ PHASE PROTOCOL (MANDATORY - DO NOT SKIP):
 - NEVER commit if build fails. Fix first.
 - NEVER proceed to next phase without explicit user approval
 - NEVER mark task as COMPLETED without user approval
-- NEVER create a PR until the task is in COMPLETED status and bitacora is updated
+- NEVER create a PR until: task is COMPLETED, bitacora is archived, AND post-flight self-maintenance has been executed
 - NEVER work directly on main or dev branches
 
 After completing all phases, invoke the code-reviewer subagent to validate your output.

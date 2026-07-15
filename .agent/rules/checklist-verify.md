@@ -22,7 +22,7 @@ Este archivo es la fuente de verdad para verificar que sigo las reglas del proye
 - [ ] Después de CADA fase: STOP -> Build Check -> Commit -> Push -> Bitácora -> Esperar aprobación
 - [ ] NO pasar a siguiente fase sin aprobación explícita del usuario
 - [ ] NO dar la tarea por COMPLETADA sin aprobación explícita del usuario
-- [ ] NO crear PR hasta que tarea esté COMPLETADA y bitácora actualizada
+- [ ] NO crear PR hasta que tarea esté COMPLETADA, bitácora archivada Y auto-mantenimiento post-flight ejecutado
 
 ### 3. Git Workflow (Para cualquier cambio de código)
 - [ ] Paso 1: Sincronizar con main y dev
@@ -83,7 +83,8 @@ Este archivo es la fuente de verdad para verificar que sigo las reglas del proye
 - [ ] API: `pnpm run build:api` — 0 errores
 - [ ] Web: `pnpm run build:web` — 0 errores
 
-### 7. Pull Request
+### 7. Pull Request (ÚLTIMO paso)
+> ⚠️ Solo después de que la tarea esté COMPLETADA, bitácora archivada Y auto-mantenimiento (sección 6) ejecutado.
 - [ ] Verificar que el PR base sea 'dev' (NUNCA main)
 - [ ] NUNCA PR a main directamente
 - [ ] PR debe ir de rama de trabajo a dev
@@ -92,6 +93,7 @@ Este archivo es la fuente de verdad para verificar que sigo las reglas del proye
 ## Notas
 - Las secciones 1-5 deben ejecutarse ANTES y DURANTE cada tarea
 - La sección **6 (Post-Flight)** debe ejecutarse después de marcar la tarea como COMPLETADO
-  y ANTES del Pull Request — es de CUMPLIMIENTO OBLIGATORIO y NO NEGOCIABLE
+  y ANTES del Pull Request (sección 7) — es de CUMPLIMIENTO OBLIGATORIO y NO NEGOCIABLE
+- El orden de cierre es: COMPLETADO → Auto-Mantenimiento (sección 6) → PR (sección 7)
 - Si alguna regla no está clara, consultar la documentación del proyecto
 - Las reglas de Git workflow son de CUMPLIMIENTO OBLIGATORIO y NO NEGOCIABLE

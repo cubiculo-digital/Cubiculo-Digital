@@ -215,7 +215,7 @@ Toda implementación DEBE dividirse en fases. Por cada fase:
 |---|-------|-------------|
 | PZ-01 | No hay commit sin build verde (0 errores) | La fase se considera fallida. Rehacer. |
 | PZ-02 | No hay siguiente fase sin aprobación del usuario | No es una sugerencia. Hay que esperar. |
-| PZ-03 | No hay PR sin tarea COMPLETADA | El PR no se crea hasta que la tarea esté COMPLETADA y bitácora actualizada. |
+| PZ-03 | No hay PR sin tarea COMPLETADA + auto-mantenimiento | El PR no se crea hasta que la tarea esté COMPLETADA, bitácora archivada Y auto-mantenimiento post-flight ejecutado. |
 | PZ-04 | No hay COMPLETADO sin aprobación explícita del usuario | La tarea nunca se auto-completa. |
 
 ### 🚦 Flujo Completo del Ciclo de Vida
