@@ -13,7 +13,13 @@ CHECK FOR:
 5. Security: JWT validation present on protected resolvers, no exposed secrets, no tokens without expiry
 6. Next.js 15 best practices: Server Components where possible, proper use of "use client"
 
+PHASE PROTOCOL (MANDATORY):
+- Verify that the build passed (0 errors) before approving any phase commit
+- If build failed: rate as BLOCKED. Do not approve.
+- Verify that the bitacora was updated after push and before approval request
+
 OUTPUT FORMAT:
 - List issues found with file + line reference
 - Rate: APPROVED / NEEDS CHANGES / BLOCKED
 - If NEEDS CHANGES, specify exactly what must be fixed before merge.
+- If BLOCKED, specify which phase protocol rule was violated.

@@ -245,9 +245,9 @@ Primero, leé [`WORKFLOW.md`](WORKFLOW.md) — es la guía de cómo trabajamos.
 
 TL;DR:
 1. Agarrá una tarea del [Projects Board](https://github.com/orgs/cubiculo-digital/projects/1)
-2. Creá tu rama desde `dev-2`: `git checkout -b feat/lo-que-sea`
+2. Creá tu rama desde `dev`: `git checkout -b feat/lo-que-sea`
 3. Codeá. Commit seguido. Push antes de pausa.
-4. PR a `dev-2` → alguien revisa → CI verde → merge.
+4. PR a `dev` → alguien revisa → CI verde → merge.
 5. Pasá la tarjeta a ✅ Done.
 
 **NUNCA** toques `main` o `dev` directamente. Son sagradas.
