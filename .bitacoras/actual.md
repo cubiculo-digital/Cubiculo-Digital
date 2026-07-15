@@ -1,5 +1,5 @@
 # 🛠️ TAREA: [Sin tarea activa]
-**ID:** — | **Estado:** ⏸ SIN TAREA ACTIVA | **Fecha:** 2026-06-23
+**ID:** — | **Estado:** ⏸ SIN TAREA ACTIVA | **Fecha:** 2026-07-15
 
 ---
 
@@ -10,7 +10,7 @@
 
 ## 🚦 PUNTO DE CONTROL
 
-- **Lo último que funcionó:** SEC-04 (#004) completado — logging unificado `[GROQ_*]`, mergeado a `dev-2` via PR #73.
+- **Lo último que funcionó:** #005 completado — Reforzar Reglas Agénticas: Stops, Builds, Aprobaciones. Mergeado via PR.
 - **Dónde se rompió/detuvo:** N/A.
 - **Siguiente acción inmediata:** Pendiente de instrucciones para próxima tarea.
 

@@ -7,8 +7,8 @@
 
 ## 🚩 ESTADO ACTUAL
 - **Tarea activa:** ⏸ Sin tarea activa — esperando instrucciones
-- **Última completada:** #004 — SEC-04: Logging unificado [GROQ_*] ✅
-- **Branch actual:** `dev-2` (staging/desarrollo)
+- **Última completada:** #005 — Reforzar Reglas Agénticas (Stops, Builds, Aprobaciones) ✅
+- **Branch actual:** `dev` (staging/desarrollo)
 - **Deploy pendiente:** No hay deploys activos
 - **Archivo de referencia rápida:** `actual.md`
 - **Documento de visión:** PRD2.md (fuente de verdad del producto)
@@ -17,7 +17,8 @@
 ---
 
 ## 📂 HISTORIAL DE TAREAS
-- **#004 — SEC-04: Logging unificado [GROQ_*]** (2026-06-23) ✅ — 2 líneas migradas `[OPENAI_*]` → `[GROQ_*]` en `interview.resolvers.ts`, PR #73 mergeado a `dev-2`
+- **#005 — Reforzar Reglas Agénticas (Stops, Builds, Aprobaciones)** (2026-07-15) ✅ — Protocolo de fases con stops en AGENTS.md, opencode.json, prompts, git-workflow, checklist-verify y feature-implementation skill. PR mergeado a dev.
+- **#004 — SEC-04: Logging unificado [GROQ_*]** (2026-06-23) ✅ — 2 líneas migradas `[OPENAI_*]` → `[GROQ_*]` en `interview.resolvers.ts`, PR #73 mergeado a dev-2
 - **#002 — GitHub Full Setup** (2026-06-14) ✅ — Org, repo, branch protection, labels, milestones, 54 issues, Projects board poblado
 - **#001 — Configuración agéntica inicial** (2026-06-12) ✅ — AGENTS.md, opencode.json, reglas, skills, workflows, bitácoras
 
