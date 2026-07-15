@@ -53,6 +53,28 @@ Para **cualquier tarea** (Exenta o Trackeable):
 
 ---
 
+### 3. PROTOCOLO DE FASES CON STOPS OBLIGATORIOS (NO NEGOCIABLE)
+> Esta sección es de CUMPLIMIENTO ABSOLUTO. Ningún agente puede omitirla, ignorarla o considerarla "sugerida". Se aplica a TODA tarea con múltiples fases.
+
+**Principio rector:** El protocolo de fases rige el flujo *entre* fases. La regla de eficiencia (Sección 2/4) rige el comportamiento *dentro* de una fase. Ambas conviven sin contradicción.
+
+1. **Desglose en Fases:** Divide la tarea en fases atómicas (máximo 1-2 archivos por fase). Cada fase debe ser autónoma y verificable.
+2. **STOP por Fase:** Después de CADA fase completada, DETENTE. NO continúes a la siguiente. No hay excepciones.
+3. **Verificación de Build:** Antes de hacer commit, ejecuta el build respectivo:
+   - API: `pnpm run build:api` — 0 errores
+   - Web: `pnpm run build:web` — 0 errores
+   - Full: `pnpm run build` — 0 errores
+   - Si el build falla, NO hagas commit. Corrige primero.
+4. **Commit por Fase:** Solo después de build verde, haz commit usando `@git-commit-formatter`.
+5. **Push:** Sube los cambios inmediatamente después del commit a la rama remota.
+6. **Actualización de Bitácora:** Actualiza `.bitacoras/actual.md` con el progreso DESPUÉS del push y ANTES de pedir aprobación. Edita también la bitácora de la tarea (`###-nombre.md`) si existe.
+7. **Esperar Aprobación:** NO pases a la siguiente fase hasta que el usuario la apruebe explícitamente. Envía un mensaje claro de STOP cuando estés listo.
+8. **Cierre Final:** Solo cuando todas las fases estén completadas y aprobadas, cambia la bitácora a `✅ COMPLETADO`. Ninguna tarea se da por COMPLETADA sin aprobación explícita del usuario.
+9. **PR solo después de COMPLETADO:** No crees Pull Request hasta que la tarea esté en estado `✅ COMPLETADO` y la bitácora esté actualizada.
+10. **Auto-Mantenimiento Post-Flight:** Tras marcar como COMPLETADO, ejecutar el protocolo de `.agent/rules/global-context/self-maintenance.md` antes del PR.
+
+---
+
 ## 🧠 REGLA DE EFICIENCIA Y RAZONAMIENTO ESTRATÉGICO
 
 **Para maximizar la productividad y el aprendizaje, sigue estas directrices:**
@@ -62,6 +84,7 @@ Para **cualquier tarea** (Exenta o Trackeable):
 3. **Comunicación Estructurada:** Prioriza tablas, listas y bloques de código. La información debe ser escaneable.
 4. **Concisión Técnica Senior:** Lenguaje directo. Cero explicaciones de conceptos básicos (React, Git, etc.) a menos que se solicite.
 5. **Edición Silenciosa:** Actualiza la bitácora `actual.md` sin anunciar cada edición, a menos que el progreso cambie el plan aprobado.
+   > ⚠️ La "edición silenciosa" aplica a micro-actualizaciones dentro de una fase. NO reemplaza el paso 6 del Protocolo de Fases (actualizar bitácora después de push y antes de aprobación entre fases). El protocolo de fases tiene precedencia sobre cualquier regla de eficiencia.
 
 ---
 
